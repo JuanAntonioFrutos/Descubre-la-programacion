@@ -2,50 +2,23 @@ double T0 = millis()/1000;
 double T1 = millis()/1000;
 double At = 5 ;
 
-
-
-
-
 void main(){
-  //animate(temporizador);
-  animate(temporizador);
+  
+  animate(semaforoRojoEnc);
 }
 
-void temporizador(){
+void prin(){
+  print ("T0+At-T1: ");
+  println(T0+At-T1);
+  println("T0" + T0);
+  println("T1" + T1);
+  println("At" + At);
 	background (0,0,0);
-  //semaforoRojoEnc();
-	T1 = millis()/1000 ;
-  if(T0+At-T1 == 0.0){
-    T0 = millis()/1000;
-    semaforoAmarilloEnc();
-    At=1.5;
-  }
-  
- 
-  
-  textSize(20);
-  text("cuenta atras: " + (T0+At-T1) ,100,120);
-  text("TO: " + T0 ,200,160);
-  text("T1: " +T1 ,200,200);
-  text("At: " +At ,200,240);
- 
-  
 }
 
 
-/*
-Cuando están encendidas.
-(230,20,20)
-(255,255,0)
-(60,255,0)
-Cuando están apagadas.
-(128,15,15)
-(146,146,5)
-(39,140,8)
-
-*/
 void semaforo(double rr,double gr, double br,double rg,double gg, double bg, double rb,double gb, double bb)  {
-  
+  background(0,0,0);
   fill(40,140,10);  
   rect(120,80,80,160);
   
@@ -71,24 +44,32 @@ Cuando están apagadas.
 
 */
 void semaforoRojoEnc(){
+  prin();
   semaforo(230,20,20, 146,146,5, 39,140,8);
-  T0 = millis()/1000;
 	T1 = millis()/1000;
   At=5;
-  animate(semaforoAmarilloEnc);
+  if(T0+At-T1 == 0.0){
+    T0 = millis()/1000;
+    animate(semaforoAmarilloEnc);
 }
-
+}
 void semaforoAmarilloEnc(){
+  prin();
   semaforo(128,15,15, 255,255,0, 39,140,8);
-  T0 = millis()/1000;
-	T1 = millis()/1000;
-  At=1.5;
-  animate(semaforoVerdeEnc);
+  T1 = millis()/1000;
+  At=2;
+  if(T0+At-T1 == 0.0){
+    T0 = millis()/1000;
+    animate(semaforoVerdeEnc);
+}
 }
 void semaforoVerdeEnc(){
+  prin();
   semaforo(128,15,15, 146,146,5, 60,255,0);
-  T0 = millis()/1000;
-	T1 = millis()/1000;
+  T1 = millis()/1000;
   At=3;
-  animate(semaforoRojoEnc);
+  if(T0+At-T1 == 0.0){
+    T0 = millis()/1000;
+    animate(semaforoRojoEnc);
+  }
 }
