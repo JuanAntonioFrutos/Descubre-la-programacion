@@ -73,3 +73,129 @@ void semaforoVerdeEnc(){
     animate(semaforoRojoEnc);
   }
 }
+
+
+/*double T0 = millis()/1000;
+double T1 = millis()/1000;
+double At = 10  ;
+
+void main(){
+  
+    animate(temporizador);
+}
+
+void temporizador(){
+	background (0,0,0);
+	T1 = millis()/1000;
+  /*
+  if(0< (T0+At-T1)&&(T0+At-T1) <5){
+    //T0 = millis()/1000;
+    println("rojo");
+  }
+  if(5< T0+At-T1 && (T0+At-T1)<8){
+   // T0 = millis()/1000;
+    println("amarillo");
+  }
+  if(8< T0+At-T1 && (T0+At-T1)<10){
+  // T0 = millis()/1000;
+    println("verde");
+  }
+ 
+    if((T0+At-T1)==0){
+   T0 = millis()/1000;
+    println("verde");
+  }
+  
+  */
+   println("rojo");
+  
+  if((T0+At-T1)<=8){
+    println("verde");
+  }
+   if((T0+At-T1)<=5){
+    println("amarillo");
+    
+  }
+   if((T0+At-T1)==0){
+    println("rojo");
+  }
+  
+  
+  
+  textSize(20);
+  text("T0+At-T1: " + (T0+At-T1) ,60,120);
+  text("TO: " + T0 ,160,160);
+  text("T1: " +T1 ,160,200);
+ 
+  
+}
+
+
+void prin(){
+  print ("T0+At-T1: ");
+  println(T0+At-T1);
+  println("T0" + T0);
+  println("T1" + T1);
+  println("At" + At);
+	background (0,0,0);
+}
+
+
+void semaforo(double rr,double gr, double br,double rg,double gg, double bg, double rb,double gb, double bb)  {
+  background(0,0,0);
+  fill(40,140,10);  
+  rect(120,80,80,160);
+  
+  fill(rr,gr,br);
+  ellipse(160,110,40,40);
+  
+  fill(rg,gg,bg);
+  ellipse(160,160,40,40);
+  
+  fill(rb,gb,bb);
+  ellipse(160,210,40,40);
+}
+
+/*
+Cuando están encendidas.
+(230,20,20)
+(255,255,0)
+(60,255,0)
+Cuando están apagadas.
+(128,15,15)
+(146,146,5)
+(39,140,8)
+
+*/
+void semaforoRojoEnc(){
+  prin();
+  semaforo(230,20,20, 146,146,5, 39,140,8);
+	T1 = millis()/1000;
+  At=5;
+  if(T0+At-T1 == 0.0){
+    T0 = millis()/1000;
+    animate(semaforoAmarilloEnc);
+}
+}
+void semaforoAmarilloEnc(){
+  prin();
+  semaforo(128,15,15, 255,255,0, 39,140,8);
+  T1 = millis()/1000;
+  At=2;
+  if(T0+At-T1 == 0.0){
+    T0 = millis()/1000;
+    animate(semaforoVerdeEnc);
+}
+}
+void semaforoVerdeEnc(){
+  prin();
+  semaforo(128,15,15, 146,146,5, 60,255,0);
+  T1 = millis()/1000;
+  At=3;
+  if(T0+At-T1 == 0.0){
+    T0 = millis()/1000;
+    animate(semaforoRojoEnc);
+  }
+}
+
+*/
