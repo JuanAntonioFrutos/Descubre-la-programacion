@@ -1,6 +1,10 @@
+int posX1 = 160;
+int posY1 = 200;
+int posX2 = 160;
+int posY2 = 10;
+int velocidad = 10;
 void main(){
-  tanque(160,160,100);
-  tanque2(100,200,120);
+animate(juego);
 }
 
 void tanque(int x, int y, int color){
@@ -21,4 +25,23 @@ void tanque2(int x, int y, int color){
   rect(x+10,y+20,6,40);
   //torre
   rect(x+3,y+10,20,20);
+    }
+
+void juego(){
+  background(149,80,29);
+    tanque(posX1,posY1,100);
+  tanque2(posX2,posY2,120);
+  
+  if (keyPressed && key == "right") {
+    posX1 = posX1 + velocidad;
+    }
+  if (keyPressed && key == "left") {
+    posX1 = posX1 - velocidad;
+    }
+  if (keyPressed && key == "d") {
+    posX2 = posX2 + velocidad;
+    }
+  if (keyPressed && key == "a") {
+    posX2 = posX2 - velocidad;
+    }
 }
