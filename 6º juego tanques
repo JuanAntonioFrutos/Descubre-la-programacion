@@ -1,0 +1,24 @@
+void main(){
+  tanque(160,160,100);
+  tanque2(100,200,120);
+}
+
+void tanque(int x, int y, int color){
+  fill(23,color,16);
+  //cuerpo
+  rect(x,y,26,40);
+  //cañon
+  rect(x+10,y-20,6,40);
+  //torre
+  rect(x+3,y+10,20,20);
+}
+
+void tanque2(int x, int y, int color){
+  fill(23,color,16);
+  //cuerpo
+  rect(x,y,26,40);
+  //cañon
+  rect(x+10,y+20,6,40);
+  //torre
+  rect(x+3,y+10,20,20);
+}
