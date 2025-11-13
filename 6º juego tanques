@@ -3,9 +3,11 @@ int posY1 = 270;
 int posX2 = 160;
 int posY2 = 10;
 int velocidad = 10;
-int PosXbala1 = 0;
-int PosYbala1 = 0;
-
+int PosXbala1 ;
+int PosYbala1 ;
+int PosXbala2 ;
+int PosYbala2 ;
+int velo = 0; 
 
 void main(){
 animate(juego);
@@ -38,7 +40,7 @@ void tanque2(int x, int y, int color){
     }
 
 void juego(){
-  background(149,80,29);
+ background(149,80,29);
   
   tanque1(posX1,posY1,100);
   tanque2(posX2,posY2,120);
@@ -56,10 +58,19 @@ void juego(){
     }
     }
   if (keyPressed && key == "up") {
-    println("ddd");
-    bala1(posX1+13,posY1-20);
+    velo = 5;
+    PosXbala1 = posX1+13;
+    PosYbala1 = posY1-20;
+  }
+ 		
+    fill(241,16,16);
+  	ellipse(PosXbala1,PosYbala1,5,5);
+  	PosYbala1 = PosYbala1 - velo;
     
-    }
+    
+
+  
+///////////////////////////////////////////////////////  
   if (keyPressed && key == "d") {
     posX2 = posX2 + velocidad;
     if(posX2 > 290){
@@ -72,4 +83,13 @@ void juego(){
       posX2 = 5;
     }
     }
+  if (keyPressed && key == "s") {
+    velo = 5;
+    PosXbala2 = posX2+13;
+    PosYbala2 = posY2+60;
+  }
+ 		
+    fill(241,16,16);
+  	ellipse(PosXbala2,PosYbala2,5,5);
+  	PosYbala2 = PosYbala2 + velo;
 }
