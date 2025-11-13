@@ -1,13 +1,17 @@
 int posX1 = 160;
-int posY1 = 200;
+int posY1 = 270;
 int posX2 = 160;
 int posY2 = 10;
 int velocidad = 10;
+int PosXbala1 = 0;
+int PosYbala1 = 0;
+
+
 void main(){
 animate(juego);
 }
-
-void tanque(int x, int y, int color){
+///////////////////////////////////////////////////////
+void tanque1(int x, int y, int color){
   fill(23,color,16);
   //cuerpo
   rect(x,y,26,40);
@@ -17,6 +21,12 @@ void tanque(int x, int y, int color){
   rect(x+3,y+10,20,20);
 }
 
+void bala1(int PosXbala1,int PosYbala1){
+  fill(241,16,16);
+  ellipse(PosXbala1,PosYbala1,5,5);
+  PosYbala1 = PosYbala1 - velocidad;
+}
+///////////////////////////////////////////////////////
 void tanque2(int x, int y, int color){
   fill(23,color,16);
   //cuerpo
@@ -29,19 +39,37 @@ void tanque2(int x, int y, int color){
 
 void juego(){
   background(149,80,29);
-    tanque(posX1,posY1,100);
+  
+  tanque1(posX1,posY1,100);
   tanque2(posX2,posY2,120);
   
   if (keyPressed && key == "right") {
     posX1 = posX1 + velocidad;
+    if(posX1 > 290){
+      posX1 = 290;
+    }
     }
   if (keyPressed && key == "left") {
     posX1 = posX1 - velocidad;
+    if(posX1 < 5){
+      posX1 = 5;
+    }
+    }
+  if (keyPressed && key == "up") {
+    println("ddd");
+    bala1(posX1+13,posY1-20);
+    
     }
   if (keyPressed && key == "d") {
     posX2 = posX2 + velocidad;
+    if(posX2 > 290){
+      posX2 = 290;
+    }
     }
   if (keyPressed && key == "a") {
     posX2 = posX2 - velocidad;
+     if(posX2 < 5){
+      posX2 = 5;
+    }
     }
 }
